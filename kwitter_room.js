@@ -16,7 +16,7 @@
     document.getElementById("user_name").innerHTML = "Welcome "+user_name+"!";
 
     function add_room(){
-      room_name = document.getElementByI("room_name").value;
+      room_name = document.getElementById("room_name").value;
     firebase.database().ref("/").child(room_name).update({
       purpose:"Adding Room Name"
     });
@@ -41,6 +41,10 @@ document.getElementById("output").innerHTML += row;
           window.location = "kwitter_page.html";
          }
 
+         function logout(){
+           localStorage.removeItem("user_name");
+           localStorage.removeItem("room_name");
+           window.location = "index.html";
+         }
+
 getData();
-
-
